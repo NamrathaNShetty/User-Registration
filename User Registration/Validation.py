@@ -48,4 +48,24 @@ class Validation:
                 return False
         
         except Exception as e:
-            logger.error(e)       
+            logger.error(e)    
+
+    def validateEmail(email):
+        '''
+        Description:
+            This function is used for validating email with regex pattern.
+        Parameter:
+            it takes self, email as parameters
+        Return:
+            It return a valid true if email is valid and false if it's invalid.
+        '''
+
+        try:
+            
+            if (re.match("^[a-z0-9]{3,}(.[0-9a-z]+)*@[a-z]{2,15}.(com|bl)(co.in)*$", email)):
+                return True
+            else:
+                return False
+
+        except Exception as e:
+            logger.error(e)           
