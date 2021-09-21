@@ -1,9 +1,9 @@
 '''
 * @Author: Namratha N Shetty
-* @Date: 2021-09-21 01:11  
+* @Date: 2021-09-21 16:00  
 * @Last Modified by: Namratha N Shetty
-* @Last Modified time: 2021-09-21 01:23
-* @Title: Solve test cases for every user detail.
+* @Last Modified time: 2021-09-21 16:23
+* @Title: Solve test cases for every user detail for first name, last name, email.
 '''
 
 from Validation import Validation 
@@ -53,3 +53,25 @@ class TestUserValidation(unittest.TestCase):
         self.assertFalse(Validation.validateLastName("DINITHA"))
         self.assertFalse(Validation.validateLastName("Dinitha1"))
         self.assertFalse(Validation.validateLastName("Dinitha@"))    
+
+    def test_givenValidEmail_shouldReturnTrue(self):
+        '''
+        Description:
+            The given valid email should return true in test case
+        Parameter:
+            It takes self as a parameter.
+        '''
+
+        self.assertTrue(Validation.validateEmail("abc10@yahoo.com"))
+        self.assertTrue(Validation.validateEmail("abc-100@yahoo.com"))
+
+    def test_givenInvalidEmail_shouldReturnFalse(self):
+        '''
+        Description:
+            The given invalid Email should return false in test case
+        Parameter:
+            It takes self as a parameter.
+        '''
+
+        self.assertFalse(Validation.validateEmail("abc@.com"))
+        self.assertFalse(Validation.validateEmail("abc@gmail.a"))    
