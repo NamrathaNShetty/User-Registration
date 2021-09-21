@@ -7,7 +7,7 @@
 '''
 
 from Validation import Validation 
-
+from AllEmails import EmailSamples 
 import unittest 
 
 class TestUserValidation(unittest.TestCase):
@@ -61,9 +61,8 @@ class TestUserValidation(unittest.TestCase):
         Parameter:
             It takes self as a parameter.
         '''
-
-        self.assertTrue(Validation.validateEmail("abc10@yahoo.com"))
-        self.assertTrue(Validation.validateEmail("abc-100@yahoo.com"))
+        for mails in EmailSamples.validEmails:
+         self.assertTrue(Validation.validateEmail(mails))
 
     def test_givenInvalidEmail_shouldReturnFalse(self):
         '''
@@ -72,9 +71,8 @@ class TestUserValidation(unittest.TestCase):
         Parameter:
             It takes self as a parameter.
         '''
-
-        self.assertFalse(Validation.validateEmail("abc@.com"))
-        self.assertFalse(Validation.validateEmail("abc@gmail.a"))    
+        for mails in EmailSamples.inValidEmails:
+         self.assertFalse(Validation.validateEmail(mails))
 
     def test_givenValidPhoneNumber_shouldReturnTrue(self):
         """
