@@ -89,3 +89,23 @@ class Validation:
 
         except Exception as e:
             logger.error(e)                
+
+    def validatePassword(password):
+        '''
+        Description: 
+            This function is used for validating password with regex pattern.
+        Parameter:
+            it takes self, password as parameters
+        Return:
+            It return a valid true if password is valid and false if it's invalid.
+        '''
+
+        try:
+
+            if(re.match("^(?=.*\\d)([a-z])*(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$", password)):
+                return True
+            else:
+                return False
+        
+        except Exception as e:
+            logger.error(e)        
