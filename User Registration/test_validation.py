@@ -101,3 +101,27 @@ class TestUserValidation(unittest.TestCase):
         self.assertFalse(Validation.validateNumber("91  6587654324"))
         self.assertFalse(Validation.validateNumber("91-876365r324"))
         self.assertFalse(Validation.validateNumber("91-87656@r324"))    
+
+    def test_givenValidPassword_shouldReturnTrue(self):
+        """
+        Description:
+            The given valid password should return true in test case
+        Parameter:
+            It takes self as a parameter
+        """
+        
+        self.assertTrue(Validation.validatePassword("A$bcd4ehlkl4"))
+        self.assertTrue(Validation.validatePassword("NamrathaN99$"))
+
+    def test_givenInValidPassword_shouldReturnFalse(self):
+        """
+        Description:
+            The given Invalid password should return true in test case
+        Parameter:
+            It takes self as a parameter
+        """
+        self.assertFalse(Validation.validatePassword("namrathashetty12"))
+        self.assertFalse(Validation.validatePassword("namrathan"))
+        self.assertFalse(Validation.validatePassword("1namratha"))
+        self.assertFalse(Validation.validatePassword("1234567"))
+        self.assertFalse(Validation.validatePassword("!@#$%1a"))    
