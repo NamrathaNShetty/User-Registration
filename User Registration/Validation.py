@@ -17,7 +17,7 @@ class Validation:
         Description:
             This method is used for validating name with regex pattern.
         Parameter:
-            it takes name as parameter
+            it takes firstname as parameter
         Return:
             It return a valid true if name is valid and false if it's invalid.
         '''
@@ -30,3 +30,22 @@ class Validation:
         
         except Exception as e:
             logger.error(e)
+
+    def validateLastName(lastName):
+        '''
+        Description:
+            This method is used for validating name with regex pattern.
+        Parameter:
+            it takes last name as parameter
+        Return:
+            It return a valid true if lastname is valid and false if it's invalid.
+        '''
+
+        try:
+            if (re.match("^[A-Z]{1}[a-z]{2,}$",lastName)):
+                return True
+            else:
+                return False
+        
+        except Exception as e:
+            logger.error(e)       
