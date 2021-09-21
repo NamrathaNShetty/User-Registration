@@ -75,3 +75,29 @@ class TestUserValidation(unittest.TestCase):
 
         self.assertFalse(Validation.validateEmail("abc@.com"))
         self.assertFalse(Validation.validateEmail("abc@gmail.a"))    
+
+    def test_givenValidPhoneNumber_shouldReturnTrue(self):
+        """
+    Description:
+        The given valid Phone number should return true in test case
+    Parameter:
+        It takes self as a parameter.
+    """
+        self.assertTrue(Validation.validateNumber("91 9618663565"))
+        self.assertTrue(Validation.validateNumber("91 9865123321"))
+
+    
+    def test_givenInvalidPhoneNumber_shouldReturnFalse(self):
+        """
+    Description:
+        The given invalid phone number should return true in test case
+    Parameter:
+        It takes self as a parameter.
+    """
+        self.assertFalse(Validation.validateNumber("91-874543"))
+        self.assertFalse(Validation.validateNumber("91-0432346578"))
+        self.assertFalse(Validation.validateNumber("91 572781254324"))
+        self.assertFalse(Validation.validateNumber("7865438768"))
+        self.assertFalse(Validation.validateNumber("91  6587654324"))
+        self.assertFalse(Validation.validateNumber("91-876365r324"))
+        self.assertFalse(Validation.validateNumber("91-87656@r324"))    
