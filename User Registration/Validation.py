@@ -2,7 +2,7 @@
 * @Author: Namratha N Shetty
 * @Date: 2021-09-21 01:11  
 * @Last Modified by: Namratha N Shetty
-* @Last Modified time: 2021-09-21 01:23
+* @Last Modified time: 2021-09-21 01:25
 * @Title: Program Aim is to validate user entered details using regular expression.
 '''
 
