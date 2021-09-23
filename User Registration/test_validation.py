@@ -3,11 +3,12 @@
 * @Date: 2021-09-21 16:00  
 * @Last Modified by: Namratha N Shetty
 * @Last Modified time: 2021-09-21 16:23
-* @Title: Solve test cases for every user detail for first name, last name, email.
+* @Title: Solve test cases for every user detail for first name, last name,
+ email, mobile number and password.
 '''
 
 from Validation import Validation 
-from AllEmails import EmailSamples 
+from InputList import InputSamples
 import unittest 
 
 class TestUserValidation(unittest.TestCase):
@@ -32,6 +33,15 @@ class TestUserValidation(unittest.TestCase):
         self.assertFalse(Validation.validateFirstName("NAMRATHA"))
         self.assertFalse(Validation.validateFirstName("Namratha1"))
         self.assertFalse(Validation.validateFirstName("Namratha@"))
+
+    def test_givenInvalidFirstName_shouldRaise_exception(self):   
+        '''
+        Desription:
+            The given invalid first name should raise exception in this test case.
+        '''
+
+        self.assertRaises(Exception)
+       
 
     def test_givenValidLastName_shouldReturnTrue(self):
         '''
@@ -61,7 +71,7 @@ class TestUserValidation(unittest.TestCase):
         Parameter:
             It takes self as a parameter.
         '''
-        for mails in EmailSamples.validEmails:
+        for mails in InputSamples.validEmails:
          self.assertTrue(Validation.validateEmail(mails))
 
     def test_givenInvalidEmail_shouldReturnFalse(self):
@@ -71,7 +81,7 @@ class TestUserValidation(unittest.TestCase):
         Parameter:
             It takes self as a parameter.
         '''
-        for mails in EmailSamples.inValidEmails:
+        for mails in InputSamples.invalidEmails:
          self.assertFalse(Validation.validateEmail(mails))
 
     def test_givenValidPhoneNumber_shouldReturnTrue(self):
@@ -108,7 +118,7 @@ class TestUserValidation(unittest.TestCase):
             It takes self as a parameter
         """
         
-        self.assertTrue(Validation.validatePassword("A$bcd4ehlkl4"))
+        self.assertTrue(Validation.validatePassword("A$4bnhekl4"))
         self.assertTrue(Validation.validatePassword("NamrathaN99$"))
 
     def test_givenInValidPassword_shouldReturnFalse(self):
