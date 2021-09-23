@@ -11,6 +11,11 @@ import re
 from Loggers import logger
 
 class Validation:
+    '''
+        Description:
+            Validate the user details.
+    '''
+
 
     def validateFirstName(firstName):
         '''
@@ -23,6 +28,7 @@ class Validation:
         '''
 
         try:
+          
             if (re.match("^[A-Z]{1}[a-z]{2,}$",firstName)):
                 return True
             else:
@@ -82,7 +88,7 @@ class Validation:
 
         try:
 
-            if(re.match("^[0-9]{2}[\\s][0-9]{10}$", phone)):
+            if(re.match("[9?][1?][\\s]?[0-9]{10}$", phone)):
                 return True
             else:
                 return False
@@ -102,7 +108,7 @@ class Validation:
 
         try:
 
-            if(re.match("^(?=.*\\d)([a-z])*(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$", password)):
+            if(re.match("^(?=.*[@#$%^&+=])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", password)):
                 return True
             else:
                 return False
